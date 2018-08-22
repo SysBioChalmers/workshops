@@ -9,9 +9,9 @@ Now that we have explored the whole model structure it is time to start to use t
 
    * a) Display exchange fluxes
 
-   * b) Display internal fluxes
+   * b) Display internal fluxes, what can you conclude from the distribution of values?
 
-   * c) What this a batch or a chemostat cultivation simulation?
+   * c) Is this a batch or a chemostat cultivation simulation?
 
    * d) Was there any limiting compound in the simulation medium?
 
@@ -29,7 +29,7 @@ Properly constrained GEMs allow to take a look to the metabolic network in actio
 
     * c) Display the reactions which relative flux difference is, at least, 50% with respect to the glucose conditions and with an absolute difference higher than 0.5 mmol/gDCW h.
 
-    * d) Get the reactios with significantly changing fluxes in which ATP is involved.
+    * d) Get the reactions with significantly changing fluxes in which ATP is involved.
 
     * e) Take a look to this results and discuss with a partner what do you observe from a metabolic point of view, you can use the EXCEL file for interpreting the results.
 

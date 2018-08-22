@@ -25,27 +25,35 @@ load('../models/GEMs/octAcidModel.mat')
     fprintf('\n')
     
     % 2b) Display internal fluxes
-    %%%%%% For this you should take a look into the printFluxes function and 
+    %%%%%% For this you should take a look into the printFluxes function and
     %%%%%% call it accordingly 
-
+    
+    %This will show a cumulative distribution of the absolute values of the
+    %fluxes in the simulation
+    cd complementary
+    FluxDist = sol.x(abs(sol.x)>1E-7);
+    plot2D(abs(FluxDist),[],'FBA simulation','Fluxes value [mmol/gDCW h]','Cumulative distribution',true)
     %As you have seen there are many reactions that have -1000 or 1000 flux.
     %This is because there are loops in the solution. In order to clean up the
     %solution we can minimize the sum of all the fluxes. This is done by
     %setting the second argument to solveLP to 1 (take a look at solveLP, there
     %are other options as well)
     sol = solveLP(tempModel,1);
-    printFluxes(octModel,sol.x,false, 10^-7);
+    printFluxes(octModel,sol.x,false, 10^-6);
     fprintf('\n')
     %Internal loops have been removed now. Take a look to the exchange fluxes
-    printFluxes(octModel,sol.x,true, 10^-7);
+    printFluxes(octModel,sol.x,true, 10^-6);
     fprintf('\n')
-
-% 3) Plot growth rate vs GUR
+    %Look at the new flux cumulative distribution
+    FluxDist = sol.x(abs(sol.x)>1E-7);
+    plot2D(abs(FluxDist),[],'pFBA simulation','Fluxes value [mmol/gDCW h]','Cumulative distribution',true)   
+    
+    % 3) Plot growth rate vs GUR
     gRates  = [];
     GURates = [];    
-    for i=1:20
+    for i=1:20+1
         %Set new lb for glucose uptake at every iteration
-        GUR = i;
+        GUR = i-1;
         tempModel = setParam(octModel,'lb','r_1714',-GUR);
         sol = solveLP(tempModel);
         %If the simulation was feasible then save the results
@@ -55,8 +63,7 @@ load('../models/GEMs/octAcidModel.mat')
         end
     end
     %Plot results
-    cd complementary
-    plot2D(GURates,gRates,'','GUR [mmol/gDw h]','Growth rate [mmol/gDCW h]')
+    plot2D(GURates,gRates,'','GUR [mmol/gDw h]','Growth rate [mmol/gDCW h]',false)
     
 % 4) Compare flux distributions for growth on glucose and glycerol
     % First get the flux distribution on glucose
@@ -68,10 +75,10 @@ load('../models/GEMs/octAcidModel.mat')
     solGly    = solveLP(tempModel,1);
     %Print results
     disp('******************* Growth on Glucose *************************')
-    printFluxes(tempModel, solGluc.x, true, 10^-7);
+    printFluxes(tempModel, solGluc.x, true, 10^-6);
     fprintf('\n')
     disp('******************* Growth on Glycerol ************************')
-    printFluxes(tempModel, solGly.x, true, 10^-7);
+    printFluxes(tempModel, solGly.x, true, 10^-6);
     fprintf('\n')
     %What if you are interested in how metabolism changes between the two 
     %conditions. followChanged takes two flux distributions and lets you
@@ -89,15 +96,15 @@ load('../models/GEMs/octAcidModel.mat')
     BioYield    = [];
     Octyield    = [];
     ocAcidIndex = find(strcmpi(octModel.rxnNames,'octanoic acid exchange'));
-    iterations  = 20;
-    miuMax      = 0.41;
+    iterations  = 10;
+    Dmax      = 0.2;
     for i=1:iterations+1
         % Set the objective function to the added octanoic acid exchange rxn
         tempModel = setParam(octModel,'obj','octanoic acid exchange',1);
-        % Set a minimal glucose media
-         tempModel = setMinimalMedia(tempModel,'r_1714',-4);
+        % Set a minimal glucose media (
+         tempModel = setMinimalMedia(tempModel,'r_1714',-2.30);
         % Fix dilution rate at every iteration
-        Drate     = miuMax*(i-1)/iterations;
+        Drate     = Dmax*(i-1)/iterations;
         tempModel = setParam(tempModel,'eq','r_4041',Drate);
         sol       = solveLP(tempModel,1);
         if ~isempty(sol.f)
@@ -116,7 +123,7 @@ load('../models/GEMs/octAcidModel.mat')
             Octyield  = [Octyield; value];
         end
     end
-    plot2D(BioYield,Octyield,'','Biomass yield [g biomass/g gluc]','Octanoic acid yield [g/g glucose]')
+    plot2D(BioYield,Octyield,'','Biomass yield [g biomass/g gluc]','Octanoic acid yield [g/g glucose]',false)
     cd (current)    
         
         
