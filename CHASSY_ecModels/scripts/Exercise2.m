@@ -63,7 +63,7 @@ load('../models/GEMs/octAcidModel.mat')
         end
     end
     %Plot results
-    plot2D(GURates,gRates,'','GUR [mmol/gDw h]','Growth rate [mmol/gDCW h]',false)
+    plot2D(GURates,gRates,'','GUR [mmol/gDw h]','Growth rate [g/gDCW h]',false)
     
 % 4) Compare flux distributions for growth on glucose and glycerol
     % First get the flux distribution on glucose
@@ -124,7 +124,8 @@ load('../models/GEMs/octAcidModel.mat')
         end
     end
     plot2D(BioYield,Octyield,'','Biomass yield [g biomass/g gluc]','Octanoic acid yield [g/g glucose]',false)
-    cd (current)    
+    cd (current)
+    clear all
         
         
         

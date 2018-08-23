@@ -35,7 +35,7 @@ Properly constrained GEMs allow to take a look to the metabolic network in actio
 
 By now, we have a modified model for the production of octanoic acid, its production performance for a wide range of conditions can be analysed through FBA.
 
-5. Get a octanoic acid yield vs biomass theoretical yield plot (in terms of mass).
+5. Get an octanoic acid yield vs biomass theoretical yield plot (in terms of mass).
     * a) According to this result would it be attractive to explore octanoic acid production with *S. cerevisiae* as a cell factory?
 
  
