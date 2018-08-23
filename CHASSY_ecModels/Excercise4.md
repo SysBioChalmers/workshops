@@ -27,7 +27,7 @@ It is time to use an enzyme constrained model and identify its advantages with r
 
 1. Reproduce the growth rate vs GUR plot in excercise2 but now with the ecModel instead of the original one. Any changes? If so, can you give a brief explanation of this?
 
-1. Run chemostat simulations at 0.025, 0.05, 0.1, 0.15, 0.2 h^-1 for both the model and ecModel and get the mean relative errors for the prediction of glucose, oxygen and CO2 exchange fluxes according to the data provided in the script. Take a look to the `simulateChemostat` in the same script for you to know how this is done.
+1. Run chemostat simulations at 0.025, 0.05, 0.1, 0.15, 0.2 h^-1 for both the model and ecModel and get the mean relative errors for the prediction of glucose, oxygen and CO2 exchange fluxes according to the data provided in the script. Take a look to the `simulateChemostat` function in the same script for you to know how this is done.
 
 1. Run batch simulations with the ecModel for the different batch experiments included in the file Data_files/growthRates_data_carbonSources.txt, 
     
