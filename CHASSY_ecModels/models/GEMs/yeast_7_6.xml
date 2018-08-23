@@ -2247,6 +2247,9 @@
       <species metaid="s_3714__91__c__93__" id="s_3714__91__c__93__" name="heme a [cytoplasm]" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:chemicalFormula="C49H56FeN4O6"/>
       <species metaid="s_3715__91__e__93__" id="s_3715__91__e__93__" name="raffinose [extracellular]" compartment="e" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:chemicalFormula="C18H32O16"/>
       <species metaid="s_3716__91__e__93__" id="s_3716__91__e__93__" name="melibiose [extracellular]" compartment="e" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:chemicalFormula="C12H22O11"/>
+      <species metaid="s_3717__91__p__93__" id="s_3717__91__p__93__" name="octanoic acid [peroxisome]" compartment="p" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species metaid="s_3718__91__c__93__" id="s_3718__91__c__93__" name="octanoic acid [cytoplasm]" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species metaid="s_3719__91__e__93__" id="s_3719__91__e__93__" name="octanoic acid [extracellular]" compartment="e" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
     </listOfSpecies>
     <listOfParameters>
       <parameter id="FB1N1000" value="-1000" constant="true"/>
@@ -45084,6 +45087,37 @@
           <speciesReference species="s_1612__91__c__93__" stoichiometry="0.102" constant="true"/>
           <speciesReference species="s_1614__91__c__93__" stoichiometry="0.2646" constant="true"/>
         </listOfProducts>
+      </reaction>
+      <reaction metaid="octanoic__32__acid__32__synthesis" id="octanoic__32__acid__32__synthesis" name="octanoic acid synthesis" reversible="false" fast="false" fbc:lowerFluxBound="FB3N0" fbc:upperFluxBound="FB4N1000">
+        <listOfReactants>
+          <speciesReference species="s_0809__91__p__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1258__91__p__93__" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0378__91__p__93__" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_3717__91__p__93__" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction metaid="octanoic__32__acid__32__transport__32__p" id="octanoic__32__acid__32__transport__32__p" name="octanoic acid transport p" reversible="false" fast="false" fbc:lowerFluxBound="FB3N0" fbc:upperFluxBound="FB4N1000">
+        <listOfReactants>
+          <speciesReference species="s_3717__91__p__93__" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_3718__91__c__93__" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction metaid="octanoic__32__acid__91__c__93____32____61____62____32__octanoic__32__acid__91__e__93__" id="octanoic__32__acid__91__c__93____32____61____62____32__octanoic__32__acid__91__e__93__" name="octanoic acid[c] =&gt; octanoic acid[e]" reversible="false" fast="false" fbc:lowerFluxBound="FB3N0" fbc:upperFluxBound="FB4N1000">
+        <listOfReactants>
+          <speciesReference species="s_3718__91__c__93__" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_3719__91__e__93__" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction metaid="octanoic__32__acid__32__exchange" id="octanoic__32__acid__32__exchange" name="octanoic acid exchange" reversible="false" fast="false" fbc:lowerFluxBound="FB3N0" fbc:upperFluxBound="FB4N1000">
+        <listOfReactants>
+          <speciesReference species="s_3719__91__e__93__" stoichiometry="1" constant="true"/>
+        </listOfReactants>
       </reaction>
     </listOfReactions>
     <fbc:listOfObjectives fbc:activeObjective="obj">
