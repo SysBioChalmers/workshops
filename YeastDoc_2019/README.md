@@ -33,7 +33,7 @@ Optional:
 - Lu, H., Li, F., Sánchez, B. J., Zhu, Z., Li, G., Domenzain, I., … Nielsen, J. (2019). [A consensus S. cerevisiae metabolic model Yeast8 and its ecosystem for comprehensively probing cellular metabolism](https://github.com/SysBioChalmers/workshops/blob/feat/YeastDoc_2019/YeastDoc_2019/reading_materials/yeastGEM.pdf). Nature Communications, 10(1), 3586.
 
 ### Required Software
-The computational part of this workshop (session 2) consists of a live demo about models manipulation and simulation for which all the necessary scripts, models and datasets should be provided in this repo. However, if you would lie to run all the material uploaded to this repository you would need the following software:
+The computational part of this workshop (session 2) consists of a live demo about models manipulation and simulation for which all the necessary scripts, models and datasets should be provided in this repo. However, if you would like to run all the uploaded material by yourself, then the following software is needed:
 - A functional `MATLAB` installation (version 2013b or later).
 - The [RAVEN toolbox](https://github.com/SysBioChalmers/RAVEN). Please read its documentation for installation and required dependencies.
 
