@@ -19,6 +19,19 @@ This repository is aimed to be used as an online resource for the **Modelling Wo
     - Enzyme-Constrained models
     - Other simulation tools
 
+### Reading materials
+In order to accomplish a better understanding of the workshop's topics the following papers are recommended as preparatory readings:
+
+- Orth, J. D., Thiele, I., & Palsson, B. O. (2010, March). [What is flux balance analysis?](https://github.com/SysBioChalmers/workshops/blob/feat/YeastDoc_2019/YeastDoc_2019/reading_materials/whatIsFBA.pdf) Nature Biotechnology.
+- Price, N. D., Reed, J. L., & Palsson, B. (2004, November). [Genome-scale models of microbial cells: Evaluating the consequences of constraints](https://github.com/SysBioChalmers/workshops/blob/feat/YeastDoc_2019/YeastDoc_2019/reading_materials/palsson_constraints.pdf). Nature Reviews Microbiology.
+- Lewis, N. E., Nagarajan, H., & Palsson, B. O. (2012). [Constraining the metabolic genotype-phenotype relationship using a phylogeny of in silico methods](https://github.com/SysBioChalmers/workshops/blob/feat/YeastDoc_2019/YeastDoc_2019/reading_materials/phylogeny_of_inSilico_methods.pdf). Nature Reviews Microbiology. Nature Publishing Group.
+- Sánchez, B. J., Zhang, C., Nilsson, A., Lahtvee, P., Kerkhoven, E. J., & Nielsen, J. (2017). [Improving the phenotype predictions of a yeast genome‐scale metabolic model by incorporating enzymatic constraints](https://github.com/SysBioChalmers/workshops/blob/feat/YeastDoc_2019/YeastDoc_2019/reading_materials/GECKO.pdf). Molecular Systems Biology, 13(8), 935.
+
+Optional:
+
+- Wang, H., Marcišauskas, S., Sánchez, B. J., Domenzain, I., Hermansson, D., Agren, R., … Kerkhoven, E. J. (2018). [RAVEN 2.0: A versatile toolbox for metabolic network reconstruction and a case study on Streptomyces coelicolor](https://github.com/SysBioChalmers/workshops/blob/feat/YeastDoc_2019/YeastDoc_2019/reading_materials/RAVEN_2.pdf). PLoS Computational Biology, 14(10).
+- Lu, H., Li, F., Sánchez, B. J., Zhu, Z., Li, G., Domenzain, I., … Nielsen, J. (2019). [A consensus S. cerevisiae metabolic model Yeast8 and its ecosystem for comprehensively probing cellular metabolism](https://github.com/SysBioChalmers/workshops/blob/feat/YeastDoc_2019/YeastDoc_2019/reading_materials/yeastGEM.pdf). Nature Communications, 10(1), 3586.
+
 ### Required Software
 The computational part of this workshop (session 2) consists of a live demo about models manipulation and simulation for which all the necessary scripts, models and datasets should be provided in this repo. However, if you would lie to run all the material uploaded to this repository you would need the following software:
 - A functional `MATLAB` installation (version 2013b or later).
