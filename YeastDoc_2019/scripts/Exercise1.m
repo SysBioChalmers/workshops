@@ -79,7 +79,7 @@ model_3HP.rxnGeneMat  = rxnGeneMat;
 
 % Export to SBML format and save MATLAB structure of the new model
 exportModel(model_3HP,'../models/yeastGEM.xml')
-save('../models/model_3HP.mat',' model_3HP')
+save('../models/model_3HP.mat','model_3HP')
 cd (current)
 clear
 % Check changes in GitHub desktop
