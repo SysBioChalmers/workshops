@@ -7,6 +7,8 @@
 % Ivan Domenzain.	Last modified 2019-09-23
 %
 
+%% Model exploration
+
 % 3) Load the model MATLAB structure
 load('../models/yeastGEM.mat')
 % 3a) How many rxns, mets, genes, comps are there in the model?
