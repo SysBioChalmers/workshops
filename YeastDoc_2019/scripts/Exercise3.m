@@ -63,7 +63,7 @@ plot2D(GURatesEC,gRatesEC,'','GUR [mmol/gDw h]','Growth rate [g/gDCW h]',false)
 %and different carbon sources. No numerical constraints are set by the
 %Csources_simulations function
 [flux_dist, conditions] = Csources_simulations(ecModel);
-
+hold off
 %% Simulate Crabtree-effect
 Csource_id   = ecModel.rxns(glucIndexEC);
 ecModel_pool = changeMedia_batch(ecModel,c_source,'Min');
