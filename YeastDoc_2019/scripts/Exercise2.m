@@ -2,10 +2,10 @@
 % Exercise2
 %
 %  - FBA simulations and visualization of results. 
-%  - Batch and chemostat simulations
+%  - Flux distributions comparisons across experimental conditions
+%  - Production yields calculations
 %  
-%  based on the latest
-%  version of yeastGEM (GitHub: https://github.com/SysBioChalmers/yeast-GEM)
+%  Based on the latest version of yeastGEM (GitHub: https://github.com/SysBioChalmers/yeast-GEM)
 %
 % Ivan Domenzain.	Last modified 2019-09-23
 
