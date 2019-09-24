@@ -17,7 +17,7 @@ As a first approach to GEMs we are going to inspect the structure and element in
    * a) How many reactions, metabolites, compartments and genes are there in the model?
    * b) With the available information, is there a way to know how many reactions are reversible?
    * c) In how many reactions is the gene `YEL039C` (CYC/) present?
-   * d) Can you explain the difference between `r_0193` and `r_0194` genes association?
+   * d) Can you explain the difference between `r_0109` and `r_0112` genes association?
    * e) Take a look into `r_0438` equation, can you say what is happening in terms of metabolites compartmentalization?
    
 3. Now you are ready for inspecting the model `.mat` file (MATLAB structure). Take your time for looking at its multiple fields: model.mets, model.rxns, model.S, model.grRules, etc. You can find all the fields that are supported by the `RAVEN` toolbox by entering `help importModel` in your MATLAB command line. 
