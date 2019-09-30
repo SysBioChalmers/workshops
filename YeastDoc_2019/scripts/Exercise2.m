@@ -7,7 +7,7 @@
 %  
 %  Based on the latest version of yeastGEM (GitHub: https://github.com/SysBioChalmers/yeast-GEM)
 %
-% Ivan Domenzain.	Last modified 2019-09-23
+% Ivan Domenzain.	Last modified 2019-09-30
 
 %% 1. Biomass maximization and exploration of solution structure
 %%Save current folder path
@@ -31,7 +31,7 @@ tempModel = setParam(model_3HP,'lb',glucIN,-1);
 glucIndex = strcmpi(model_3HP.rxnNames,'D-glucose exchange');
 tempModel.lb(glucIndex) = -1;
 % run FBA
-solution = solveLP(tempModel)
+solution = solveLP(tempModel);
 % Explore solution structure
 colNames        = {'reactions' 'fluxes' 'grRules'};
 solution_Fluxes = table(model_3HP.rxnNames,solution.x,model_3HP.grRules,'VariableNames',colNames);
@@ -146,8 +146,8 @@ yield       = [];
 Index3HP    = find(strcmpi(model_3HP.rxnNames,'3HP exchange'));
 iterations  = 10;
 Dmax        = 0.2;
-%Get a maximum GUR
-tempModel = setParam(model_3HP,'lb',model_3HP.rxns(growthIndex),0.9999*Drate);
+%Get a maximum GUR subject to Dmax
+tempModel = setParam(model_3HP,'lb',model_3HP.rxns(growthIndex),0.9999*Dmax);
 tempModel = minimal_Y6(tempModel,glucIN,-1000);
 tempModel = setParam(tempModel,'obj',glucIN,1);
 sol       = solveLP(tempModel,1);
@@ -156,7 +156,7 @@ GURopt    = sol.x(glucIndex);
 for i=1:iterations+1
     % Set the objective function to the added 3HP exchange rxn
     tempModel = setParam(model_3HP,'obj',model_3HP.rxns{Index3HP},1);
-    % Set a minimal glucose media (
+    % Set a minimal glucose media and GURopt as UB for GUR
     tempModel = minimal_Y6(tempModel,glucIN,GURopt);
     % Fix dilution rate at every iteration
     Drate     = Dmax*(i-1)/iterations;
