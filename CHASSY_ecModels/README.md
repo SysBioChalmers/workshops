@@ -1,13 +1,13 @@
 # CHASSY project
 ## Metabolic modelling workshop
-This repository was used as an online resource for the CHASSY **Modelling Workshop** on August 2018. The workshop consists on the following sessions of 45 minutes each:
+This repository was used as an online resource for the CHASSY **Modelling Workshop** on August 2018. The workshop consists on the following sessions:
 
 1. **Genome-scale mEtabolic Models and FBA:** 
     - Metabolic networks reconstruction 
     - Linear Programming
     - Flux Balance Analysis (FBA)
     - Alternate optima and Flux Variability Analysis (FVA)
-2. **Playing with GEMs:** (Live Demo) 
+2. **Playing with GEMs:**
     - Model structure exploration with `MATLAB` and the [RAVEN toolbox](https://github.com/SysBioChalmers/RAVEN/wiki) 
     - Imposition of experimental constraints into GEMs
     - FBA, production rates and yields calculations
