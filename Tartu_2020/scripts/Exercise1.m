@@ -7,7 +7,8 @@
 % Ivan Domenzain.	Last modified 2019-09-23
 %
 
-%% Model structure exploration
+%% Model structure expl
+current = pwd;
 
 % 3) Load the model MATLAB structure
 load('../models/yeastGEM.mat')
