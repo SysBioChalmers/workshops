@@ -1,4 +1,4 @@
-%YeastDoc modelling tutorial: Excercise #3
+%Metabolic modelling tutorial: Excercise #3
 % Exercise3
 %
 %  - Enzyme-constrained model exploration
@@ -9,7 +9,7 @@
 %  based on the latest
 %  version of ecYeastGEM (GitHub: https://github.com/SysBioChalmers/GECKO)
 %
-% Ivan Domenzain.	Last modified 2019-09-23
+% Ivan Domenzain.	Last modified 2020-02-09
 
 %% Enzyme-constrained model exploration
 
