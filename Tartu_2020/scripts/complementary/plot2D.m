@@ -10,7 +10,7 @@ function plot2D(dataX,dataY,titleStr,xStr,yStr,cumDist)
         ylim([0 1])
         %axis(axisLimits)
     end
-    title(titleStr,'FontSize',18)
-    xlabel(xStr,'FontSize',18)
-    ylabel(yStr,'FontSize',18)
+    title(titleStr)
+    xlabel(xStr)
+    ylabel(yStr)
 end
