@@ -42,9 +42,9 @@ cd ../..
 
 %Move model files:
 rmdir('model', 's')
-movefile GECKO/models/ecYeastGEM model
-save('model/ecYeastGEM.mat','ecModel')
-save('model/ecYeastGEM_batch.mat','ecModel_batch')
+movefile GECKO/models/ecRhtoGEM model
+save('model/ecRhtoGEM.mat','ecModel')
+save('model/ecRhtoGEM.mat','ecModel_batch')
 
 %Save associated versions:
 fid = fopen('dependencies.txt','wt');
@@ -54,4 +54,4 @@ fclose(fid);
 
 %Remove the cloned repos:
 rmdir('GECKO', 's')
-rmdir('yeast-GEM', 's')
+rmdir('ecRhtoGEM', 's')
