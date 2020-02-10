@@ -82,26 +82,7 @@ end
 model = removeRxns(model,model.rxns(arm_pos(1:p)));
 %Change gene rules:
 if isfield(model,'rules')
-    for i = 1:length(model.rules)
-        if ~isempty(model.rules{i})
-            disp(model.rules{i})
-            %Change gene ids:
-            model.rules{i} = strrep(model.rules{i},'x(','');
-            model.rules{i} = strrep(model.rules{i},')','');
-            genes          = strsplit(model.rules{i},' & ');
-            newStr         = [];
-            for gene = genes
-                if ~isempty(newStr)
-                    newStr = gene{1};
-                else
-                    disp(str2double(gene))
-                    newGene = model.genes{str2double(gene)};
-                    newStr  = [newStr ' & ' gene{1}];
-                end
-            end
-            model.rules{i}  = newStr;
-        end
-    end
+    model.rules = cell(length(model.rules,1));
 end
 % Remove unused enzymes after manual curation (2017-01-16):
 rem_enz = false(size(model.enzymes));
