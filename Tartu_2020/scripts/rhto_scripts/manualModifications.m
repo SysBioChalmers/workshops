@@ -82,7 +82,7 @@ end
 model = removeRxns(model,model.rxns(arm_pos(1:p)));
 %Change gene rules:
 if isfield(model,'rules')
-    model.rules = cell(length(model.rules,1));
+    model.rules = cell(length(model.grRules),1);
 end
 % Remove unused enzymes after manual curation (2017-01-16):
 rem_enz = false(size(model.enzymes));
