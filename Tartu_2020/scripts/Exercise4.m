@@ -8,13 +8,14 @@
 % Ivan Domenzain.	Last modified 2020-02-10
 
 %Load models 
+current = pwd;
 ecModel       = open('../models/ecModel.mat');
 ecModel       = ecModel.ecModel;
 ecModel_batch = open('../models/ecModel_batch.mat');
 ecModel_batch = ecModel_batch.ecModel_batch;
 
 %Clone the necessary repos:
-rmdir GECKO/
+rmdir ('GECKO','s')
 git('clone https://github.com/SysBioChalmers/GECKO.git')
 cd GECKO
 git('pull')
@@ -28,4 +29,6 @@ cd geckomat/utilities/integrate_proteomics
 %Parameters
 grouping   = [3 3];
 flexFactor = 1.05;
-generate_protModels(ecModel,grouping,name,flexFactor,ecModel_batch);
+generate_protModels(ecModel,grouping,'ecYeastGEM',flexFactor,ecModel_batch);
+cd (current)
+
