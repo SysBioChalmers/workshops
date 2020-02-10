@@ -32,6 +32,7 @@ end
 
 %Run GECKO pipeline:
 cd GECKO
+delete databases/prot_abundance.txt
 GECKOver = git('describe --tags');
 cd geckomat/get_enzyme_data
 updateDatabases;

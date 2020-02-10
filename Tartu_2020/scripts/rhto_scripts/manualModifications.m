@@ -135,13 +135,13 @@ reaction = string(reaction);
 % Only kcat available in BRENDA was for Rattus Norvegicus. Value
 % corrected with max. s.a. in Rattus norvegicus [0.03 umol/min/mg, Mw=226 kDa]
 % from BRENDA (2018-01-27)
-if (strcmpi('prot_M7XI04',enzName) && (contains(reaction,'hydroxymethylglutaryl CoA reductase')))
-    % Ratus norvegicus
-    newValue = -(0.023*3600)^-1;
-    %newValue         = -(0.03*226000*0.06)^-1;
-    modifications{1} = [modifications{1}; string('M7XI04')];
-    modifications{2} = [modifications{2}; reaction];
-end
+% if (strcmpi('prot_M7XI04',enzName) && (contains(reaction,'hydroxymethylglutaryl CoA reductase')))
+%     % Ratus norvegicus
+%     newValue = -(0.023*3600)^-1;
+%     %newValue         = -(0.03*226000*0.06)^-1;
+%     modifications{1} = [modifications{1}; string('M7XI04')];
+%     modifications{2} = [modifications{2}; reaction];
+% end
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Modify those kcats involved in extreme misspredictions for growth on
