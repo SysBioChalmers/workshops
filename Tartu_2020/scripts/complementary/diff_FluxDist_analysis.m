@@ -75,8 +75,8 @@ if isempty(setdiff(metIndxs_ref,metIndxs_cond))
 else
     disp('Inconsistent mapping')
 end
-mkdir('../Results/diff_FluxDist_analyisis')
-fileName = ['../Results/diff_FluxDist_analyisis/' fileName];
+mkdir('../../results/diff_FluxDist_analysis')
+fileName = ['../../results/diff_FluxDist_analysis/' fileName];
 %Extract values from flux distributions
 metFluxes_ref    = ref_sol(metIndxs_ref);
 metFluxes_cond   = cond_sol(metIndxs_cond);
@@ -122,7 +122,7 @@ if protFlag
     rxnIDs_cond = getProteinID(rxnIDs_cond);
 end
 subSystems     = {};
-log2FC         = {};
+log2FC         = [];
 nonZero_ref    = refVals;
 nonZero_ref(nonZero_ref==0) = 1E-12;
 nonZero_cond  = condVals;
@@ -141,8 +141,8 @@ if isempty(setdiff(rxnIDs_ref,rxnIDs_cond))
         Fchange = log2(nonZero_cond(i)/nonZero_ref(i));
         log2FC  = [log2FC; Fchange];
     end
-    grRules        = refModel.grRules(refIndxs);
-    modelIDs       = refModel.rxns(refIndxs);
+    grRules  = refModel.grRules(refIndxs);
+    modelIDs = refModel.rxns(refIndxs);
     if protFlag
         %Calculate percentage enzyme usages for measured enzymes and
         %append it to the results comparative table
