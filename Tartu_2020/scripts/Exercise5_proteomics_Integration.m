@@ -9,35 +9,40 @@
 
 %Load models 
 current = pwd;
-ecModel       = open('../models/ecModel.mat');
-ecModel       = ecModel.ecModel;
-ecModel_batch = open('../models/ecModel_batch.mat');
-ecModel_batch = ecModel_batch.ecModel_batch;
+ecModel       = open('../models/ecYeastGEM.mat');
+ecModel_batch = open('../models/ecYeastGEM_batch.mat');
 
-%Clone the necessary repos:
-rmdir ('GECKO','s')
+%% Clone the necessary repos:
+
+%delete GECKO in case that a previous copy exists here
+if isfolder('GECKO') 
+    rmdir ('GECKO','s')
+end
 git('clone https://github.com/SysBioChalmers/GECKO.git')
 cd GECKO
 git('pull')
-%Locate the correct branch
+%checkout the correct branch for proteomics incorporation
 git('checkout feat-add_utilities') 
-%Transfer proteomics dataset to GECKO
+%Transfer proteomics dataset and fermentation data (exchange fluxes, Ptot and
+% dilution rates) from ../data to GECKO/databases
 copyfile('../../data/abs_proteomics.txt','databases')
 copyfile('../../data/fermentationData.txt','databases')
-cd geckomat/utilities/integrate_proteomics
 
-%Parameters
+%% Incorporate proteomics
 grouping   = [3 3]; %Our dataset contains three replicates per condition
 flexFactor = 1.05;  %Allowable flexibilization factor for fixing glucose uptake rate
 %Use GECKo utilities for proteomics integration
+cd geckomat/utilities/integrate_proteomics
 generate_protModels(ecModel,grouping,'ecYeastGEM',flexFactor,ecModel_batch);
 cd (current)
-%Transfer output models to the models folder in the repo
+%Transfer output models to the models folder in the tutorial repo
 mkdir('../models/prot_constrained')
 copyfile('GECKO/models/prot_constrained/ecYeastGEM/**','../models/prot_constrained')
 %remove GECKO repository
 rmdir('GECKO','s')
 
+%% Analyze flux distributions and enzyme usages
+clc
 %Run differential analysis on the flux and enzyme usage level
 model_Std = load('../models/prot_constrained/ecYeastGEM_Std.mat');
 model_HiT = load('../models/prot_constrained/ecYeastGEM_HiT.mat');
