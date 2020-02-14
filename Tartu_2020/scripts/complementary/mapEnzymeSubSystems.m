@@ -12,7 +12,6 @@ function subSystems = mapEnzymeSubSystems(enzymes,model)
 %
 %   usage: subSystems = mapEnzymeSubSystems(enzymes,model)
 %
-% Created.        Ivan Domenzain 2019-04-16
 % Last modified.  Ivan Domenzain 2019-04-16
 
 subSystems = {};

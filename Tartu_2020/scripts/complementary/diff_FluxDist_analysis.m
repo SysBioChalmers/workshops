@@ -75,8 +75,8 @@ if isempty(setdiff(metIndxs_ref,metIndxs_cond))
 else
     disp('Inconsistent mapping')
 end
-mkdir('../../results/diff_FluxDist_analysis')
-fileName = ['../../results/diff_FluxDist_analysis/' fileName];
+mkdir('../../results/proteomics_integration')
+fileName = ['../../results/proteomics_integration/' fileName];
 %Extract values from flux distributions
 metFluxes_ref    = ref_sol(metIndxs_ref);
 metFluxes_cond   = cond_sol(metIndxs_cond);

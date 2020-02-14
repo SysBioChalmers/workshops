@@ -70,15 +70,13 @@ help diff_FluxDist_analysis
 bioRxn   = ref.rxns(find(strcmpi(ref.rxnNames,'growth')));
 Csource  = 'D-glucose exchange (reversible)';
 Drate    = 0.1; %From experiments!
-fileName = 'Std_vs_HiT.txt';
-
 
 for i=2:length(conditions)
     cond = conditions{i};
     condModel  = load(['../../models/prot_constrained/ecYeastGEM_' cond '.mat']);
     condModel  = condModel.ecModelP;
     outputName = ['Std_vs_' cond '.txt'];
-    resultStruct = diff_FluxDist_analysis(ref,condModel,bioRxn,Csource,Drate,'Std_vs_HiT.txt');
+    resultStruct = diff_FluxDist_analysis(ref,condModel,bioRxn,Csource,Drate,outputName);
     % Show the top 20 "up-regulated" fluxes and enzymes
     temp = sortrows(resultStruct.rxns,5,'descend');
     disp(['The top 10 upregulated reaction fluxes for ' cond ' are: '])
