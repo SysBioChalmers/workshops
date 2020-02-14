@@ -75,7 +75,7 @@ for i=2:length(conditions)
     cond = conditions{i};
     condModel  = load(['../../models/prot_constrained/ecYeastGEM_' cond '.mat']);
     condModel  = condModel.ecModelP;
-    outputName = ['Std_vs_' cond '.txt'];
+    outputName = ['Std_vs_' cond];
     resultStruct = diff_FluxDist_analysis(ref,condModel,bioRxn,Csource,Drate,outputName);
     % Show the top 20 "up-regulated" fluxes and enzymes
     temp = sortrows(resultStruct.rxns,5,'descend');
