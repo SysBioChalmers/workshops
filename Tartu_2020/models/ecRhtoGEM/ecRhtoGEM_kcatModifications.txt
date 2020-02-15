@@ -1,2 +1,2 @@
 Unicode,enz_pos,rxn_pos,Organism,Modified,Parameter,oldValue,newValue,error,ControlCoeff
-M7X5F4,2401,3544,nocardia asteroides,1,SA*Mw,64.5005,1562,-9.90572,0.061602
+M7X5F4,2401,3544,nocardia asteroides,1,SA*Mw,64.5005,1562,-9.90389,0.061603
