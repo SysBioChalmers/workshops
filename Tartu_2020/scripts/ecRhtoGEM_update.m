@@ -1,6 +1,6 @@
 % ecRhtoGEMUpdate
 %
-%   Ivan Domenzain, 2020-02-07
+%   Ivan Domenzain, 2020-02-15
 %
 
 %Clone the necessary repos:
@@ -15,7 +15,11 @@ git('clone https://github.com/SysBioChalmers/rhto-GEM.git')
 model    = load('rhto-GEM/ModelFiles/mat/rhto.mat');
 model    = model.model;
 modelVer = model.description(strfind(model.description,'_v')+1:end);
-
+%If there's no prot_abundance.txt file in the provided databases, then
+%remove this file from GECKO/databases in order to assume a f factor of 0.5
+if ~isfile('../databases/prot_abundance.txt')
+    delete('GECKO/databases/prot_abundance.txt')
+end
 %Replace scripts in GECKO:
 for fileType={'rhto_scripts' '../databases'}
 fileNames = dir(fileType{1});
@@ -40,17 +44,17 @@ cd ..
 cd ../..
 
 %Move model files:
-rmdir('model', 's')
-movefile GECKO/models/ecYeastGEM model
-save('model/ecYeastGEM.mat','ecModel')
-save('model/ecYeastGEM_batch.mat','ecModel_batch')
+mkdir('../models/ecRhtoGEM')
+movefile GECKO/models/ecRhtoGEM ../models/ecRhtoGEM
+save('../models/ecRhtoGEM/ecRhtoGEM.mat','ecModel')
+save('../models/ecRhtoGEM/ecRhtoGEM_batch.mat','ecModel_batch')
 
 %Save associated versions:
 fid = fopen('dependencies.txt','wt');
 fprintf(fid,['GECKO\t' GECKOver '\n']);
-fprintf(fid,['yeast-GEM\t' modelVer '\n']);
+fprintf(fid,['rhto-GEM\t' modelVer '\n']);
 fclose(fid);
 
 %Remove the cloned repos:
 rmdir('GECKO', 's')
-rmdir('yeast-GEM', 's')
+rmdir('rhto-GEM', 's')
